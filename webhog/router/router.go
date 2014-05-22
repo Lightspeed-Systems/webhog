@@ -1,8 +1,8 @@
 package router
 
 import (
+	"github.com/Lightspeed-Systems/webhog/webhog"
 	"github.com/go-martini/martini"
-	"github.com/johnernaut/webhog/webhog"
 	"github.com/martini-contrib/binding"
 	"github.com/martini-contrib/render"
 	"labix.org/v2/mgo/bson"
@@ -17,6 +17,10 @@ func LoadRoutes() {
 	m.Use(render.Renderer())
 	m.Use(martini.Recovery())
 	m.Use(martini.Static("public"))
+
+	m.Get("/status", func(res http.ResponseWriter, req *http.Request) {
+		res.WriteHeader(200)
+	})
 
 	m.Group("/api", func(r martini.Router) {
 		r.Post("/scrape", KeyRequired(), binding.Bind(Url{}), Scrape)

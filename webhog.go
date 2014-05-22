@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/johnernaut/webhog/webhog"
-	"github.com/johnernaut/webhog/webhog/router"
+	"github.com/Lightspeed-Systems/webhog/webhog"
+	"github.com/Lightspeed-Systems/webhog/webhog/router"
 	"os"
 	"runtime"
 )
