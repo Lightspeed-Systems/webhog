@@ -1,5 +1,5 @@
 development:
-  mongodb:    mongodb://127.0.0.1:27017/webhog
+  mongodb:    MONGO_URL
   api_key:    SCRAPEAPI
   aws_key:    AWS_ACCESS_KEY_ID
   aws_secret: AWS_SECRET_ACCESS_KEY
