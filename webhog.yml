@@ -5,13 +5,13 @@ development:
   aws_secret: AWS_SECRET_ACCESS_KEY
   bucket: webhog-development
 production:
-  mongodb:    mongodb://127.0.0.1:27017/webhog
+  mongodb:    MONGO_URL
   api_key:    SCRAPEAPI
   aws_key:    LSMBC_S3_AWS_KEY
   aws_secret: LSMDM_S3_AWS_SECRET
   bucket: webhog-production
 staging:
-  mongodb:    mongodb://us-west-2a-mbc-webcache-mng01:27017/webcache
+  mongodb:    MONGO_URL
   api_key:    SCRAPEAPI
   aws_key:    LSMBC_S3_AWS_KEY
   aws_secret: LSMDM_S3_AWS_SECRET
