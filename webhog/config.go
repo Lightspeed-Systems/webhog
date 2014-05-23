@@ -22,15 +22,16 @@ func LoadConfig() error {
 		return err
 	}
 
-	Config.mongodb, _ = conf.Get(getEnv() + ".mongodb")
 	Config.ApiKey, _ = conf.Get(getEnv() + ".api_key")
 	Config.bucket, _ = conf.Get(getEnv() + ".bucket")
 
 	key, _ := conf.Get(getEnv() + ".aws_key")
+	mongo, _ := conf.Get(getEnv() + ".mongodb")
 	secret, _ := conf.Get(getEnv() + ".aws_secret")
 
 	Config.AwsKey = os.Getenv(key)
 	Config.AwsSecret = os.Getenv(secret)
+	Config.mongodb = os.Getenv(mongo)
 
 	return err
 }
