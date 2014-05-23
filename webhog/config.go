@@ -3,6 +3,7 @@ package webhog
 import (
 	"github.com/kylelemons/go-gypsy/yaml"
 	"os"
+    "log"
 	"strings"
 )
 
@@ -32,6 +33,10 @@ func LoadConfig() error {
 	Config.AwsKey = os.Getenv(key)
 	Config.AwsSecret = os.Getenv(secret)
 	Config.mongodb = os.Getenv(mongo)
+
+    log.Println("AWS Key: ", Config.AwsKey)
+    log.Println("AWS Secret: ", Config.AwsSecret)
+    log.Println("Mongo URL: ", Config.mongodb)
 
 	return err
 }
