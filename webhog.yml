@@ -8,11 +8,11 @@ production:
   mongodb:    MONGO_URL
   api_key:    SCRAPEAPI
   aws_key:    LSMBC_S3_AWS_KEY
-  aws_secret: LSMDM_S3_AWS_SECRET
+  aws_secret: LSMBC_S3_AWS_SECRET
   bucket: webhog-production
 staging:
   mongodb:    MONGO_URL
   api_key:    SCRAPEAPI
   aws_key:    LSMBC_S3_AWS_KEY
-  aws_secret: LSMDM_S3_AWS_SECRET
+  aws_secret: LSMBC_S3_AWS_SECRET
   bucket: webhog-staging
