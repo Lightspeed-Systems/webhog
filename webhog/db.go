@@ -39,6 +39,8 @@ func LoadDB() {
 		log.Panicln("Error establishing database connection: ", err)
 	}
 
+	session.SetMode(mgo.Monotonic, true)
+
 	Conn.Sess = session
 	Conn.C = session.DB("").C("entities")
 }
