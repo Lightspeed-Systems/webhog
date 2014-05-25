@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/johnernaut/webhog/webhog"
+	"github.com/Lightspeed-Systems/webhog/webhog"
 	"os"
 	"runtime"
 )

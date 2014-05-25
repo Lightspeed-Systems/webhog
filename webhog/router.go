@@ -1,7 +1,6 @@
 package webhog
 
 import (
-	"github.com/Lightspeed-Systems/webhog/webhog"
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/binding"
 	"github.com/martini-contrib/render"
