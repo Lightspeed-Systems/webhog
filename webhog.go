@@ -3,8 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/Lightspeed-Systems/webhog/webhog"
-	"github.com/Lightspeed-Systems/webhog/webhog/router"
+	"github.com/johnernaut/webhog/webhog"
 	"os"
 	"runtime"
 )
@@ -29,5 +28,5 @@ func main() {
 	webhog.LoadDB()
 
 	// Load route handlers
-	router.LoadRoutes()
+	webhog.LoadRoutes()
 }
