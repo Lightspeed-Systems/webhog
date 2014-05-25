@@ -40,5 +40,5 @@ func LoadDB() {
 	}
 
 	Conn.Sess = session
-	Conn.C = session.DB("webhog").C("entities")
+	Conn.C = session.DB("").C("entities")
 }
