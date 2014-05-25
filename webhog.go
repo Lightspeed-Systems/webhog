@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"github.com/Lightspeed-Systems/webhog/webhog"
-	"github.com/Lightspeed-Systems/webhog/webhog/router"
 	"os"
 	"runtime"
 )
@@ -29,5 +28,5 @@ func main() {
 	webhog.LoadDB()
 
 	// Load route handlers
-	router.LoadRoutes()
+	webhog.LoadRoutes()
 }
