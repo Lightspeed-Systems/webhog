@@ -11,6 +11,7 @@ type configuration struct {
 	ApiKey    string
 	AwsKey    string
 	AwsSecret string
+	AwsRegion string
 	bucket    string
 }
 
@@ -26,11 +27,13 @@ func LoadConfig() error {
 	Config.bucket, _ = conf.Get(getEnv() + ".bucket")
 
 	key, _ := conf.Get(getEnv() + ".aws_key")
-	mongo, _ := conf.Get(getEnv() + ".mongodb")
 	secret, _ := conf.Get(getEnv() + ".aws_secret")
+	region, _ := conf.Get(getEnv() + ".aws_region")
+	mongo, _ := conf.Get(getEnv() + ".mongodb")
 
 	Config.AwsKey = os.Getenv(key)
 	Config.AwsSecret = os.Getenv(secret)
+	Config.AwsRegion = os.Getenv(region)
 	Config.mongodb = os.Getenv(mongo)
 
 	return err

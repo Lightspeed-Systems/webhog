@@ -3,16 +3,19 @@ development:
   api_key:    SCRAPEAPI
   aws_key:    AWS_ACCESS_KEY_ID
   aws_secret: AWS_SECRET_ACCESS_KEY
+  aws_region: AWS_REGION
   bucket: webhog-development
-production:
-  mongodb:    MONGO_URL
-  api_key:    SCRAPEAPI
-  aws_key:    LSMBC_S3_AWS_KEY
-  aws_secret: LSMBC_S3_AWS_SECRET
-  bucket: webhog-production
 staging:
   mongodb:    MONGO_URL
   api_key:    SCRAPEAPI
   aws_key:    LSMBC_S3_AWS_KEY
   aws_secret: LSMBC_S3_AWS_SECRET
-  bucket: webhog-staging
+  aws_region: LSMBC_S3_AWS_REGION
+  bucket: mbc-webcache-staging
+production:
+  mongodb:    MONGO_URL
+  api_key:    SCRAPEAPI
+  aws_key:    LSMBC_S3_AWS_KEY
+  aws_secret: LSMBC_S3_AWS_SECRET
+  aws_region: LSMBC_S3_AWS_REGION
+  bucket: mbc-webcache-production

@@ -16,8 +16,13 @@ func UploadEntity(dir string, entity *Entity) (string, error) {
 	// 	return "", err
 	// }
 
+	region := aws.USWest2
+	if Config.AwsRegion == "USWest2" {
+		region = aws.USWest2
+	}
+
 	// Open Bucket
-	s := s3.New(aws.Auth{Config.AwsKey, Config.AwsSecret}, aws.USWest2)
+	s := s3.New(aws.Auth{Config.AwsKey, Config.AwsSecret}, region)
 	bucket := s.Bucket(Config.bucket)
 
 	b, err := ioutil.ReadFile(dir)
