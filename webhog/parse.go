@@ -62,8 +62,8 @@ func ExtractData(entity *Entity, url string) {
 	for {
 		select {
 		case <-done:
-			go finalizeEntity(entity, doc, EntityDir)
-		default:
+			finalizeEntity(entity, doc, EntityDir)
+			return
 		}
 	}
 }
@@ -173,8 +173,6 @@ func createNewEntity(url string, entity *Entity) error {
 		log.Println("Error creating entity dir: ", err)
 	}
 
-	go ExtractData(entity, url)
-
 	id, err := uuid.NewV4()
 	if err != nil {
 		log.Println("Error creating UUID: ", err)
@@ -196,6 +194,8 @@ func createNewEntity(url string, entity *Entity) error {
 	if err != nil {
 		return err
 	}
+
+	go ExtractData(entity, url)
 
 	return err
 }

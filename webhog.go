@@ -4,13 +4,15 @@ import (
 	"flag"
 	"fmt"
 	"github.com/Lightspeed-Systems/webhog/webhog"
+	//"github.com/davecheney/profile"
 	"os"
 	"runtime"
 )
 
-const VERSION = "v0.1.0"
+const VERSION = "v0.1.1"
 
 func main() {
+	//defer profile.Start(profile.CPUProfile).Stop()
 	version := flag.Bool("version", false, "current version")
 	flag.Parse()
 	if *version {
