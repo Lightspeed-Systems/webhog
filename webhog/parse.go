@@ -153,7 +153,7 @@ func checkExistingEntity(url string, e *Entity) error {
 	exp := e.CreatedAt.Add(ExpirationTime)
 
 	// update the entity and re-download / parse assets
-	if time.Now().After(exp) {
+	if err == nil && time.Now().After(exp) {
 		err = Update(e, bson.M{"uuid": e.UUID},
 			bson.M{"$set": bson.M{"aws_link": "", "status": ParsingStatus, "created_at": time.Now()}})
 		if err != nil {
