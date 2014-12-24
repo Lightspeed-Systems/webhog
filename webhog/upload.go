@@ -49,6 +49,8 @@ func UploadEntity(dir string, entity *Entity) (string, error) {
 
 	log.Println("bucket is:", bucket)
 	log.Println("endDir is: ", endDir)
+	log.Println("full path mashed:", region.S3BucketEndpoint+bucket.Name+"/"+endDir)
+	log.Println("awsLink:", bucket.URL("/"+endDir))
 	err = bucket.Put("/"+endDir, b, "text/plain", s3.PublicRead)
 	if err != nil {
 		return "", err
