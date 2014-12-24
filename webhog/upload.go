@@ -4,18 +4,12 @@ import (
 	"io/ioutil"
 	"launchpad.net/goamz/aws"
 	"launchpad.net/goamz/s3"
-	"log"
 	"strings"
 )
 
 func UploadEntity(dir string, entity *Entity) (string, error) {
 	spl := strings.Split(dir, "/")
 	endDir := spl[len(spl)-1]
-
-	// auth, err := aws.EnvAuth()
-	// if err != nil {
-	// 	return "", err
-	// }
 
 	region := aws.USEast
 	switch Config.AwsRegion {
@@ -37,7 +31,6 @@ func UploadEntity(dir string, entity *Entity) (string, error) {
 		region = aws.SAEast
 	}
 
-	log.Println("region is:", region)
 	// Open Bucket
 	s := s3.New(aws.Auth{Config.AwsKey, Config.AwsSecret}, region)
 	bucket := s.Bucket(Config.bucket)
@@ -47,10 +40,6 @@ func UploadEntity(dir string, entity *Entity) (string, error) {
 		return "", err
 	}
 
-	log.Println("bucket is:", bucket)
-	log.Println("endDir is: ", endDir)
-	log.Println("full path mashed:", region.S3BucketEndpoint+bucket.Name+"/"+endDir)
-	log.Println("awsLink:", bucket.URL("/"+endDir))
 	err = bucket.Put("/"+endDir, b, "text/plain", s3.PublicRead)
 	if err != nil {
 		return "", err
