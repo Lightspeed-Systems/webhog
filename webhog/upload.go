@@ -16,9 +16,24 @@ func UploadEntity(dir string, entity *Entity) (string, error) {
 	// 	return "", err
 	// }
 
-	region := aws.USWest2
-	if Config.AwsRegion == "USWest2" {
+	region := aws.USEast
+	switch Config.AwsRegion {
+	case "us-east-1":
+		region = aws.USEast
+	case "us-west-2":
 		region = aws.USWest2
+	case "us-west-1":
+		region = aws.USWest
+	case "eu-west-1":
+		region = aws.EUWest
+	case "ap-southeast-1":
+		region = aws.APSoutheast
+	case "ap-southeast-2":
+		region = aws.APSoutheast2
+	case "ap-northeast-2":
+		region = aws.APNortheast
+	case "sa-east-1":
+		region = aws.SAEast
 	}
 
 	// Open Bucket
