@@ -47,6 +47,8 @@ func UploadEntity(dir string, entity *Entity) (string, error) {
 		return "", err
 	}
 
+	log.Println("bucket is:", bucket)
+	log.Println("endDir is: ", endDir)
 	err = bucket.Put("/"+endDir, b, "text/plain", s3.PublicRead)
 	if err != nil {
 		return "", err
