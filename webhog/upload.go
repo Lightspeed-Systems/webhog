@@ -4,6 +4,7 @@ import (
 	"io/ioutil"
 	"launchpad.net/goamz/aws"
 	"launchpad.net/goamz/s3"
+	"log"
 	"strings"
 )
 
@@ -36,6 +37,7 @@ func UploadEntity(dir string, entity *Entity) (string, error) {
 		region = aws.SAEast
 	}
 
+	log.Println("region is:", region)
 	// Open Bucket
 	s := s3.New(aws.Auth{Config.AwsKey, Config.AwsSecret}, region)
 	bucket := s.Bucket(Config.bucket)
